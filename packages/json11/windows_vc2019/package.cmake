@@ -1,0 +1,12 @@
+# Copyright (c) 2012-2019 Robin Degen
+
+if (NOT TARGET Json11::Json11)
+    add_library(Json11::Json11 STATIC IMPORTED)
+    set_target_properties(Json11::Json11 PROPERTIES INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_LIST_DIR}/include")
+
+    set_property(TARGET Json11::Json11 APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+    set_target_properties(Json11::Json11 PROPERTIES IMPORTED_LOCATION_RELEASE "${CMAKE_CURRENT_LIST_DIR}/lib/json11.lib")
+
+    set_property(TARGET Json11::Json11 APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
+    set_target_properties(Json11::Json11 PROPERTIES IMPORTED_LOCATION_DEBUG "${CMAKE_CURRENT_LIST_DIR}/lib/json11d.lib")
+endif ()
