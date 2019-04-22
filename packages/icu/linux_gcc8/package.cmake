@@ -8,6 +8,7 @@ if (NOT TARGET ICU::data)
     set_target_properties(ICU::data PROPERTIES IMPORTED_LOCATION "${CMAKE_CURRENT_LIST_DIR}/lib/libicudata.so")
 
     copy_files_to_runtime_path(FILES "${CMAKE_CURRENT_LIST_DIR}/lib/libicudata.so")
+    copy_files_to_runtime_path(FILES "${CMAKE_CURRENT_LIST_DIR}/lib/libicudata.so.64")
 
     # https://cmake.org/cmake/help/v3.13/module/FindICU.html
     # "on Windows data is named dt and i18n is named in;"
