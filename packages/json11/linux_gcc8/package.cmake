@@ -1,0 +1,5 @@
+if (NOT TARGET Json11::Json11)
+    add_library(Json11::Json11 STATIC IMPORTED)
+    set_target_properties(Json11::Json11 PROPERTIES INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_LIST_DIR}/include")
+    set_target_properties(Json11::Json11 PROPERTIES IMPORTED_LOCATION "${CMAKE_CURRENT_LIST_DIR}/lib/libjson11.a")
+endif ()
