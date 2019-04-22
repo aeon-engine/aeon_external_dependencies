@@ -9,4 +9,8 @@ if (NOT TARGET Asio::Asio)
         ASIO_STANDALONE
         ASIO_HEADER_ONLY
     )
+
+    set(CMAKE_THREAD_PREFER_PTHREAD ON)
+    find_package(Threads)
+    set_target_properties(Asio::Asio PROPERTIES INTERFACE_LINK_LIBRARIES ${CMAKE_THREAD_LIBS_INIT})
 endif ()
