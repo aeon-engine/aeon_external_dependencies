@@ -2,6 +2,10 @@ if (NOT TARGET GoogleBenchmark::GoogleBenchmark)
     add_library(GoogleBenchmark::GoogleBenchmark STATIC IMPORTED)
     set_target_properties(GoogleBenchmark::GoogleBenchmark PROPERTIES INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_LIST_DIR}/include")
     set_target_properties(GoogleBenchmark::GoogleBenchmark PROPERTIES IMPORTED_LOCATION "${CMAKE_CURRENT_LIST_DIR}/lib/libbenchmark.a")
+
+    set(CMAKE_THREAD_PREFER_PTHREAD ON)
+    find_package(Threads)
+    set_target_properties(GoogleBenchmark::GoogleBenchmark PROPERTIES INTERFACE_LINK_LIBRARIES ${CMAKE_THREAD_LIBS_INIT})
 endif ()
 
 if (NOT TARGET GoogleBenchmark::Main)
